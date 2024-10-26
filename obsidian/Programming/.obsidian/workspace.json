@@ -1,0 +1,272 @@
+{
+  "main": {
+    "id": "fd015ccd424eb9c7",
+    "type": "split",
+    "children": [
+      {
+        "id": "cb66097bfb7622db",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "20f42839437a2115",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Next.JS.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Next.JS"
+            }
+          },
+          {
+            "id": "c8e23cf762960196",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tailwind CSS.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Tailwind CSS"
+            }
+          },
+          {
+            "id": "1f0b398101415abf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ShadCN.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ShadCN"
+            }
+          },
+          {
+            "id": "a5d90f0e075e25f1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ReactJS.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ReactJS"
+            }
+          },
+          {
+            "id": "ef3c3d4e05b8152e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Next.JS.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Next.JS"
+            }
+          },
+          {
+            "id": "5a03d2a138fff4a1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NPM.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "NPM"
+            }
+          },
+          {
+            "id": "f4cd1bd13c8eb1ed",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Chocolatey.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Chocolatey"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7135e488cb0c0ec8",
+    "type": "split",
+    "children": [
+      {
+        "id": "a3517abea621b09c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "421fba8970a5ced9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "74304947b1e753b9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "1cf99e5d31456f13",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "aeabccd0b06f9560",
+    "type": "split",
+    "children": [
+      {
+        "id": "232fdded58f55cec",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a4cd8e14ddd19a70",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "ShadCN.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for ShadCN"
+            }
+          },
+          {
+            "id": "d007b2cb155476cf",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "ShadCN.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from ShadCN"
+            }
+          },
+          {
+            "id": "4a34b4138e6e227f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "d7aa9d506ab730d6",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "ShadCN.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of ShadCN"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "ef3c3d4e05b8152e",
+  "lastOpenFiles": [
+    "Pasted image 20240821100553.png",
+    "Drawing Tools.md",
+    "ReactJS.md",
+    "ShadCN.md",
+    "Tailwind CSS.md",
+    "Next.JS.md",
+    "NPM.md",
+    "Chocolatey.md",
+    "Node.js.md",
+    "Vite.md",
+    "Welcome.md",
+    "The Wujud Initiative Website.md",
+    "My System in creating a website.md",
+    "Pasted image 20240821101047.png",
+    "Wordpress.md",
+    "Slug.md",
+    "Database Indexing.md",
+    "External References.md",
+    "create a link.md"
+  ]
+}
