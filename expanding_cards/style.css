@@ -7,16 +7,17 @@
 body {
     font-family: 'Muli', sans-serif;
     display: flex;
-    align-items: center; /*Horizontal alignment*/
-    justify-content: center; /*Requires height to be able to justify content (vertical center)*/
-    height: 100vh; /*percentage of the current Viewport Height*/
+    align-items: center; /*Vertical Alignment once you added display:flex*/
+    justify-content: center; /*Horizontal Alignment once you added display:flex*/
+    height: 100vh; /*The viewport height is the height of the existing view i.e. the height of the browser. 100vh means the height of the body will take up all 100% of the vh*/
     overflow: hidden;
     margin: 0;
 }
 
 .container {
-    display: flex;
-    width: 90vw;
+    display: flex; /* All childrens inside the container parent will be arranged in a flex box according to the flex-direction. By default the direction is a row*/
+    /* flex-direction: column; */
+    width: 80vw; /*  */
 }
 
 .panel {
