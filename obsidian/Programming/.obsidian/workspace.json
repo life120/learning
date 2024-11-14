@@ -69,12 +69,52 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Next.JS.md",
+                "file": "ShadCN.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Next.JS"
+              "title": "ShadCN"
+            }
+          },
+          {
+            "id": "a7c1f02f69291f68",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OpenShot.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "OpenShot"
+            }
+          },
+          {
+            "id": "add1dea495dff32e",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.7.5"
+              },
+              "icon": "lucide-file",
+              "title": "Release Notes 1.7.5"
+            }
+          },
+          {
+            "id": "a3ffc03c8c3dd22f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Git.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Git"
             }
           },
           {
@@ -106,7 +146,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -247,21 +287,23 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ef3c3d4e05b8152e",
+  "active": "a3ffc03c8c3dd22f",
   "lastOpenFiles": [
+    "My System in creating a website.md",
+    "Git.md",
+    "ShadCN.md",
+    "OpenShot.md",
+    "Vite.md",
+    "Next.JS.md",
     "Pasted image 20240821100553.png",
     "Drawing Tools.md",
     "ReactJS.md",
-    "ShadCN.md",
     "Tailwind CSS.md",
-    "Next.JS.md",
     "NPM.md",
     "Chocolatey.md",
     "Node.js.md",
-    "Vite.md",
     "Welcome.md",
     "The Wujud Initiative Website.md",
-    "My System in creating a website.md",
     "Pasted image 20240821101047.png",
     "Wordpress.md",
     "Slug.md",
