@@ -1,5 +1,5 @@
 How to create a next.js app?
-Ensure that [[NPM]] is installed to the latest version
+Ensure that [[npm]] is installed to the latest version
 1. Check that npm is installed in your computer
 	1. $npm -v
 	2. $node -v

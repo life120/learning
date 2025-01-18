@@ -4,53 +4,53 @@
     "type": "split",
     "children": [
       {
-        "id": "cb66097bfb7622db",
+        "id": "0ce34cf9f466d10a",
         "type": "tabs",
         "children": [
           {
-            "id": "20f42839437a2115",
+            "id": "88b8e8e17050bcfa",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Next.JS.md",
+                "file": "My System in creating a website.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Next.JS"
+              "title": "My System in creating a website"
             }
           },
           {
-            "id": "c8e23cf762960196",
+            "id": "05c3771b1d3ff4a9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tailwind CSS.md",
+                "file": "UI UX.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Tailwind CSS"
+              "title": "UI UX"
             }
           },
           {
-            "id": "1f0b398101415abf",
+            "id": "2127eef6c7dc3530",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ShadCN.md",
+                "file": "Vite.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ShadCN"
+              "title": "Vite"
             }
           },
           {
-            "id": "a5d90f0e075e25f1",
+            "id": "57dec970b0fd3651",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -62,91 +62,9 @@
               "icon": "lucide-file",
               "title": "ReactJS"
             }
-          },
-          {
-            "id": "ef3c3d4e05b8152e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ShadCN.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ShadCN"
-            }
-          },
-          {
-            "id": "a7c1f02f69291f68",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "OpenShot.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "OpenShot"
-            }
-          },
-          {
-            "id": "add1dea495dff32e",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.7.5"
-              },
-              "icon": "lucide-file",
-              "title": "Release Notes 1.7.5"
-            }
-          },
-          {
-            "id": "a3ffc03c8c3dd22f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Git.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Git"
-            }
-          },
-          {
-            "id": "5a03d2a138fff4a1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NPM.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "NPM"
-            }
-          },
-          {
-            "id": "f4cd1bd13c8eb1ed",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Chocolatey.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Chocolatey"
-            }
           }
         ],
-        "currentTab": 7
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -287,21 +205,27 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a3ffc03c8c3dd22f",
+  "active": "57dec970b0fd3651",
   "lastOpenFiles": [
-    "My System in creating a website.md",
-    "Git.md",
-    "ShadCN.md",
-    "OpenShot.md",
+    "Pasted image 20250116110153.png",
+    "Pasted image 20250116105804.png",
+    "npm.md",
+    "Node.js.md",
     "Vite.md",
+    "Git.md",
+    "Software Architecture Design.md",
+    "UI UX.md",
+    "Drawing Tools.md",
+    "My System in creating a website.md",
+    "Full Stack Developer Roadmap.md",
+    "Free Resources.md",
+    "OpenShot.md",
+    "Chocolatey.md",
+    "ShadCN.md",
     "Next.JS.md",
     "Pasted image 20240821100553.png",
-    "Drawing Tools.md",
     "ReactJS.md",
     "Tailwind CSS.md",
-    "NPM.md",
-    "Chocolatey.md",
-    "Node.js.md",
     "Welcome.md",
     "The Wujud Initiative Website.md",
     "Pasted image 20240821101047.png",
