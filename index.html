@@ -1,30 +1,268 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Basyir's Personal Site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitelisted MAC Address Monitoring - Govermation Backend</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select, .form-group button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group button {
+            background-color: #e60000;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+        }
+
+        .form-group button:hover {
+            background-color: #b80000;
+        }
+
+        .file-list {
+            margin-top: 30px;
+        }
+
+        .file-list input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        table th {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .modal-content button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #e60000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
-
 <body>
-  <table cellspacing=20>
-    <tr>
-      <td> <img src="basyir-circle-cropped.png" alt="Basyir's profile photo" width="400">
-      </td>
-      <td>  <h1>Muhammad Basyir Bin Firdaus</h1>
+    <div class="header">
+        <h1>Whitelisted MAC Address Monitoring</h1>
+        <div class="logo"></div>
+    </div>
 
-        <p><em>Consulting Engineer in <strong><a href="https://www.adzaan.com.sg">Adzaan Consulting Pte Ltd</a></strong></em></p>
-        <p>
-          <em>I</em> am a consulting engineer who specialise in noise and vibration. I am interested in coding and process automation
-        </p></td>
-    </tr>
-  </table>
+    <div class="container">
+        <h2>Upload Report</h2>
+        <form id="uploadForm">
+            <div class="form-group">
+                <label for="fileInput">Select File:</label>
+                <input type="file" id="fileInput" name="file" required />
+            </div>
+            <div class="form-group">
+                <label for="regionSelect">Select Region:</label>
+                <select id="regionSelect" name="region" required>
+                    <option value="">Select Region</option>
+                    <option value="Singapore">Singapore</option>
+                    <option value="Regional">Regional</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit">Upload</button>
+            </div>
+        </form>
 
-  <hr>
+        <div class="file-list">
+            <input type="text" id="searchInput" placeholder="Search files..." />
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Filename</th>
+                            <th>Region</th>
+                            <th>Upload Date</th>
+                            <th>Size</th>
+                        </tr>
+                    </thead>
+                    <tbody id="fileList">
+                        <!-- File rows will be inserted dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-  <a href="education.html">Education</a>
-  <a href="hobbies.html">Hobbies & Interest</a>
-  <a href="contact.html">Contact Information</a>
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <p id="modalMessage"></p>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const modalMessage = document.getElementById('modalMessage');
+
+        function showModal(message) {
+            modalMessage.textContent = message;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const fileInput = document.getElementById('fileInput');
+            const regionSelect = document.getElementById('regionSelect');
+            if (!fileInput.files[0] || !regionSelect.value) {
+                showModal('Please select a file and region.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            formData.append('region', regionSelect.value);
+
+            try {
+                const response = await fetch('/api/upload', {
+                    method: 'POST',
+                    body: formData,
+                });
+                const result = await response.json();
+                showModal(result.message || 'File uploaded successfully.');
+                loadFiles();
+            } catch (error) {
+                showModal('Error uploading file.');
+            }
+        });
+
+        async function loadFiles() {
+            try {
+                const response = await fetch('/api/files');
+                const files = await response.json();
+                const fileList = document.getElementById('fileList');
+                fileList.innerHTML = '';
+
+                files.forEach((file) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${file.name}</td>
+                        <td>${file.region}</td>
+                        <td>${file.uploadDate}</td>
+                        <td>${file.size}</td>
+                    `;
+                    fileList.appendChild(row);
+                });
+            } catch (error) {
+                showModal('Error loading files.');
+            }
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const searchValue = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('#fileList tr');
+            rows.forEach(row => {
+                row.style.display = row.innerText.toLowerCase().includes(searchValue) ? '' : 'none';
+            });
+        });
+
+        loadFiles();
+    </script>
 </body>
-
 </html>
