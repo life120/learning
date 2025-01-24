@@ -3,23 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whitelisted MAC Address Monitoring - Govermation Backend</title>
+    <title>Report Upload UI</title>
     <style>
+        /* General Styles */
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
             background-color: #fff;
             color: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .header {
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px;
             background-color: #000;
             color: #fff;
+            box-sizing: border-box;
         }
 
         .header h1 {
@@ -35,34 +41,43 @@
         }
 
         .container {
-            max-width: 800px;
+            width: 800px;
             margin: 20px auto;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        h2 {
+        .container h2 {
             margin-top: 0;
+            text-align: center;
         }
 
         .form-group {
+            width: 100%;
             margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
         }
 
         .form-group label {
-            display: block;
             margin-bottom: 10px;
             font-weight: bold;
         }
 
-        .form-group input, .form-group select, .form-group button {
+        .form-group input,
+        .form-group select,
+        .form-group button {
             width: 100%;
             padding: 10px;
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            box-sizing: border-box;
         }
 
         .form-group button {
@@ -70,6 +85,7 @@
             color: #fff;
             cursor: pointer;
             border: none;
+            font-size: 16px;
         }
 
         .form-group button:hover {
@@ -77,6 +93,7 @@
         }
 
         .file-list {
+            width: 100%;
             margin-top: 30px;
         }
 
@@ -87,10 +104,12 @@
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            box-sizing: border-box;
         }
 
         .table-container {
             overflow-x: auto;
+            width: 100%;
         }
 
         table {
@@ -98,15 +117,18 @@
             border-collapse: collapse;
         }
 
-        table th, table td {
+        table th,
+        table td {
             text-align: left;
             padding: 10px;
             border: 1px solid #ccc;
+            box-sizing: border-box;
         }
 
         table th {
             background-color: #000;
             color: #fff;
+            text-align: left;
         }
 
         .modal {
@@ -137,14 +159,20 @@
             border: none;
             cursor: pointer;
         }
+
+        .modal-content button:hover {
+            background-color: #b80000;
+        }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <div class="header">
-        <h1>Whitelisted MAC Address Monitoring</h1>
+        <h1>Report Upload UI</h1>
         <div class="logo"></div>
     </div>
 
+    <!-- Main Container -->
     <div class="container">
         <h2>Upload Report</h2>
         <form id="uploadForm">
@@ -178,7 +206,7 @@
                         </tr>
                     </thead>
                     <tbody id="fileList">
-                        <!-- File rows will be inserted dynamically -->
+                        <!-- File rows will be dynamically inserted -->
                     </tbody>
                 </table>
             </div>
@@ -257,7 +285,7 @@
         document.getElementById('searchInput').addEventListener('input', (e) => {
             const searchValue = e.target.value.toLowerCase();
             const rows = document.querySelectorAll('#fileList tr');
-            rows.forEach(row => {
+            rows.forEach((row) => {
                 row.style.display = row.innerText.toLowerCase().includes(searchValue) ? '' : 'none';
             });
         });
