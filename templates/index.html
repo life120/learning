@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report Upload UI</title>
+    <title>Whitelisted MAC Address Monitoring - Govermation Backend</title>
     <style>
         /* General Styles */
         body {
@@ -168,7 +168,7 @@
 <body>
     <!-- Header -->
     <div class="header">
-        <h1>Report Upload UI</h1>
+        <h1>Whitelisted MAC Address Monitoring</h1>
         <div class="logo"></div>
     </div>
 
@@ -202,7 +202,9 @@
                             <th>Filename</th>
                             <th>Region</th>
                             <th>Upload Date</th>
+                            <th>Last Modified</th>
                             <th>Size</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody id="fileList">
@@ -224,29 +226,30 @@
     <script>
         const modal = document.getElementById('modal');
         const modalMessage = document.getElementById('modalMessage');
-
+    
         function showModal(message) {
             modalMessage.textContent = message;
             modal.style.display = 'flex';
         }
-
+    
         function closeModal() {
             modal.style.display = 'none';
         }
-
+    
         document.getElementById('uploadForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const fileInput = document.getElementById('fileInput');
             const regionSelect = document.getElementById('regionSelect');
+    
             if (!fileInput.files[0] || !regionSelect.value) {
                 showModal('Please select a file and region.');
                 return;
             }
-
+    
             const formData = new FormData();
             formData.append('file', fileInput.files[0]);
             formData.append('region', regionSelect.value);
-
+    
             try {
                 const response = await fetch('/api/upload', {
                     method: 'POST',
@@ -259,21 +262,23 @@
                 showModal('Error uploading file.');
             }
         });
-
+    
         async function loadFiles() {
             try {
                 const response = await fetch('/api/files');
                 const files = await response.json();
                 const fileList = document.getElementById('fileList');
                 fileList.innerHTML = '';
-
+    
                 files.forEach((file) => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td>${file.name}</td>
                         <td>${file.region}</td>
-                        <td>${file.uploadDate}</td>
+                        <td>${file.uploadDateTime}</td>
+                        <td>${file.lastModified}</td>
                         <td>${file.size}</td>
+                        <td><button onclick="deleteFile('${file.name}', '${file.region}')">Delete</button></td>
                     `;
                     fileList.appendChild(row);
                 });
@@ -281,7 +286,33 @@
                 showModal('Error loading files.');
             }
         }
-
+    
+        async function deleteFile(fileName, region) {
+            if (!confirm(`Are you sure you want to delete "${fileName}"?`)) {
+                return;
+            }
+    
+            try {
+                const response = await fetch('/api/delete', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name: fileName, region: region }),
+                });
+    
+                const result = await response.json();
+                if (result.message) {
+                    showModal(result.message);
+                    loadFiles();
+                } else {
+                    showModal(result.error || 'Error deleting file.');
+                }
+            } catch (error) {
+                showModal('Error deleting file.');
+            }
+        }
+    
         document.getElementById('searchInput').addEventListener('input', (e) => {
             const searchValue = e.target.value.toLowerCase();
             const rows = document.querySelectorAll('#fileList tr');
@@ -289,8 +320,11 @@
                 row.style.display = row.innerText.toLowerCase().includes(searchValue) ? '' : 'none';
             });
         });
-
+    
+        // Load files on page load
         loadFiles();
     </script>
+    
+    
 </body>
 </html>
