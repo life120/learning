@@ -1,15 +1,20 @@
-from flask import Flask, request, jsonify, render_template, send_from_directory
+from flask import Flask, request, jsonify, render_template, send_from_directory, redirect, url_for, session
 import os
 import datetime
 import json
 
 app = Flask(__name__)
 
+app.secret_key = 'your_secret_key'
 # Configuration for file uploads
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+# Mock user credentials (for demonstration)
+USER_CREDENTIALS = {
+    'admin': 'password123'  # username: password
+}
 
 def get_date_folder_name():
     """Generate a folder name based on the current date."""
@@ -23,7 +28,35 @@ def get_current_datetime():
 
 @app.route('/')
 def index():
-    """Serve the main HTML file."""
+    """Redirect to login or the main UI."""
+    if 'username' in session:
+        return redirect(url_for('upload_ui'))
+    return redirect(url_for('login'))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    """Render the login page and handle login logic."""
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        if username in USER_CREDENTIALS and USER_CREDENTIALS[username] == password:
+            session['username'] = username
+            return redirect(url_for('upload_ui'))
+        else:
+            return render_template('login.html', error='Invalid username or password')
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    """Logout the user and clear the session."""
+    session.pop('username', None)
+    return redirect(url_for('login'))
+
+@app.route('/upload_ui')
+def upload_ui():
+    """Serve the file upload UI."""
+    if 'username' not in session:
+        return redirect(url_for('login'))
     return render_template('index.html')
 
 
