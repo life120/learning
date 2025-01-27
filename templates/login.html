@@ -25,6 +25,16 @@
             text-align: center;
             margin-bottom: 20px;
         }
+        .flash-message {
+            background-color: #ffe4e1; /* Faint red */
+            color: #b22222; /* Darker red for text */
+            border: 1px solid #f08080; /* Slightly darker border */
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            text-align: center;
+        }
         .login-container form {
             display: flex;
             flex-direction: column;
@@ -46,20 +56,20 @@
         .login-container form button:hover {
             background-color: #0056b3;
         }
-        .error {
-            color: red;
-            font-size: 14px;
-            text-align: center;
-            margin-bottom: 10px;
-        }
     </style>
 </head>
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        {% if error %}
-        <div class="error">{{ error }}</div>
-        {% endif %}
+        <!-- Flash message section -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash-message">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <!-- Login form -->
         <form method="POST">
             <input type="text" name="username" placeholder="Username" required />
             <input type="password" name="password" placeholder="Password" required />

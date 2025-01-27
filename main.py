@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify, render_template, send_from_directory, redirect, url_for, session
+from flask import Flask, request, jsonify, render_template, send_from_directory, redirect, url_for, session, flash
+from functools import wraps
 import os
 import datetime
 import json
@@ -16,6 +17,17 @@ USER_CREDENTIALS = {
     'admin': 'password123'  # username: password
 }
 
+def login_required(f):
+    """Decorator to ensure the user is logged in."""
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'username' not in session:
+            # Flash a message (optional)
+            flash("Please log in to access this page.", "warning")
+            return redirect(url_for('login'))
+        return f(*args, **kwargs)
+    return decorated_function
+
 def get_date_folder_name():
     """Generate a folder name based on the current date."""
     return datetime.datetime.now().strftime('%Y_%m_%d')
@@ -27,6 +39,7 @@ def get_current_datetime():
 
 
 @app.route('/')
+
 def index():
     """Redirect to login or the main UI."""
     if 'username' in session:
@@ -35,7 +48,6 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    """Render the login page and handle login logic."""
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
@@ -43,7 +55,7 @@ def login():
             session['username'] = username
             return redirect(url_for('upload_ui'))
         else:
-            return render_template('login.html', error='Invalid username or password')
+            flash("Invalid username or password", "error")  # Add flash message
     return render_template('login.html')
 
 @app.route('/logout')
@@ -53,14 +65,14 @@ def logout():
     return redirect(url_for('login'))
 
 @app.route('/upload_ui')
+@login_required
 def upload_ui():
     """Serve the file upload UI."""
-    if 'username' not in session:
-        return redirect(url_for('login'))
     return render_template('index.html')
 
 
 @app.route('/api/upload', methods=['POST'])
+@login_required
 def api_upload():
     """Handle file uploads via API."""
     if 'file' not in request.files or 'region' not in request.form:
