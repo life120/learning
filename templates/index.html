@@ -42,6 +42,12 @@
             border-radius: 50%;
         }
 
+        .welcome {
+            font-size: 16px;
+            font-weight: bold;
+            color: #4CAF50; /* Green for welcome text */
+        }
+
         .container {
             width: 800px;
             margin: 20px auto;
@@ -186,8 +192,8 @@
     <!-- Header -->
     <div class="header">
         <h1>Whitelisted MAC Address Monitoring</h1>
-        <div>
-            <div class="logo"></div>
+        <div class="user-info">
+            <span class="welcome">Welcome {{ session['username'] }}!</span>
             <a href="{{ url_for('logout') }}" class="logout-link">Logout</a>
         </div>
     </div>
