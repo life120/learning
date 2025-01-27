@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,10 +23,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 10px 20px;
             background-color: #000;
             color: #fff;
             box-sizing: border-box;
+            border-bottom: 2px solid #ccc;
         }
 
         .header h1 {
@@ -163,14 +165,31 @@
         .modal-content button:hover {
             background-color: #b80000;
         }
+
+        .logout-link {
+            color: #a020f0;
+            /* Bright purple color */
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .logout-link:hover {
+            text-decoration: underline;
+            color: #8000ff;
+            /* Slightly darker purple on hover */
+        }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <div class="header">
         <h1>Whitelisted MAC Address Monitoring</h1>
-        <div class="logo"></div>
-        <a href="{{ url_for('logout') }}">Logout</a>
+        <div>
+            <div class="logo"></div>
+            <a href="{{ url_for('logout') }}" class="logout-link">Logout</a>
+        </div>
     </div>
 
     <!-- Main Container -->
@@ -227,30 +246,30 @@
     <script>
         const modal = document.getElementById('modal');
         const modalMessage = document.getElementById('modalMessage');
-    
+
         function showModal(message) {
             modalMessage.textContent = message;
             modal.style.display = 'flex';
         }
-    
+
         function closeModal() {
             modal.style.display = 'none';
         }
-    
+
         document.getElementById('uploadForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const fileInput = document.getElementById('fileInput');
             const regionSelect = document.getElementById('regionSelect');
-    
+
             if (!fileInput.files[0] || !regionSelect.value) {
                 showModal('Please select a file and region.');
                 return;
             }
-    
+
             const formData = new FormData();
             formData.append('file', fileInput.files[0]);
             formData.append('region', regionSelect.value);
-    
+
             try {
                 const response = await fetch('/api/upload', {
                     method: 'POST',
@@ -263,14 +282,14 @@
                 showModal('Error uploading file.');
             }
         });
-    
+
         async function loadFiles() {
             try {
                 const response = await fetch('/api/files');
                 const files = await response.json();
                 const fileList = document.getElementById('fileList');
                 fileList.innerHTML = '';
-    
+
                 files.forEach((file) => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
@@ -287,12 +306,12 @@
                 showModal('Error loading files.');
             }
         }
-    
+
         async function deleteFile(fileName, region) {
             if (!confirm(`Are you sure you want to delete "${fileName}"?`)) {
                 return;
             }
-    
+
             try {
                 const response = await fetch('/api/delete', {
                     method: 'POST',
@@ -301,7 +320,7 @@
                     },
                     body: JSON.stringify({ name: fileName, region: region }),
                 });
-    
+
                 const result = await response.json();
                 if (result.message) {
                     showModal(result.message);
@@ -313,7 +332,7 @@
                 showModal('Error deleting file.');
             }
         }
-    
+
         document.getElementById('searchInput').addEventListener('input', (e) => {
             const searchValue = e.target.value.toLowerCase();
             const rows = document.querySelectorAll('#fileList tr');
@@ -321,11 +340,12 @@
                 row.style.display = row.innerText.toLowerCase().includes(searchValue) ? '' : 'none';
             });
         });
-    
+
         // Load files on page load
         loadFiles();
     </script>
-    
-    
+
+
 </body>
+
 </html>
