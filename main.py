@@ -80,6 +80,7 @@ def api_upload():
 
     file = request.files['file']
     region = request.form['region']
+    username = session['username'] 
 
     if file.filename == '':
         return jsonify({"error": "No selected file"}), 400
@@ -106,6 +107,7 @@ def api_upload():
         "region": region,
         "uploadDateTime": get_current_datetime(),
         "size": f"{os.path.getsize(file_path) / 1024:.2f} KB",  # Convert to kilobytes
+        "uploadedBy": username
     }
 
     # Save or update metadata in the JSON file
@@ -126,7 +128,7 @@ def api_upload():
     with open(metadata_file_path, 'w') as metadata_file:
         json.dump(existing_metadata, metadata_file)
 
-    return jsonify({"message": f"File uploaded successfully under '{region}' region.", "metadata": existing_metadata})
+    return jsonify({"message": f"File uploaded successfully under '{region}' region by {username}.", "metadata": existing_metadata})
 
 
 @app.route('/api/files', methods=['GET'])
