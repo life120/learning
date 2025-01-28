@@ -149,6 +149,7 @@ padding: 20px;
             background-color: rgba(0, 0, 0, 0.5);
             justify-content: center;
             align-items: center;
+            z-index: 1000;
         }
 
         .modal-content {
@@ -157,6 +158,7 @@ padding: 20px;
             border-radius: 10px;
             text-align: center;
             width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .modal-content button {
@@ -170,6 +172,28 @@ padding: 20px;
 
         .modal-content button:hover {
             background-color: #b80000;
+        }
+
+        .loading-icon {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #ccc;
+            border-top: 5px solid #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .success-message {
+            color: #4CAF50;
+            font-size: 18px;
+        }
+        .error-message {
+            color: #f44336;
+            font-size: 18px;
         }
 
         .logout-link {
@@ -242,6 +266,13 @@ padding: 20px;
         </div>
     </div>
 
+    <div class="modal" id="loadingModal">
+        <div class="modal-content">
+            <div class="loading-icon"></div>
+            <p>Uploading... Please wait.</p>
+        </div>
+    </div>
+
     <!-- Modal -->
     <div class="modal" id="modal">
         <div class="modal-content">
@@ -251,6 +282,7 @@ padding: 20px;
     </div>
 
     <script>
+        const loadingModal = document.getElementById('loadingModal');
         const modal = document.getElementById('modal');
         const modalMessage = document.getElementById('modalMessage');
 
@@ -277,15 +309,23 @@ padding: 20px;
             formData.append('file', fileInput.files[0]);
             formData.append('region', regionSelect.value);
 
+            // Show loading modal
+            loadingModal.style.display = 'flex';
+
             try {
                 const response = await fetch('/api/upload', {
                     method: 'POST',
                     body: formData,
                 });
+                
                 const result = await response.json();
+                // Hide loading modal
+                loadingModal.style.display = 'none';
                 showModal(result.message || 'File uploaded successfully.');
                 loadFiles();
             } catch (error) {
+                // Hide loading modal
+                loadingModal.style.display = 'none';
                 showModal('Error uploading file.');
             }
         });
