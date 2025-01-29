@@ -81,3 +81,57 @@ The **Approval Status Page** allows users to track the progress of their access 
 ---
 
 This updated breakdown ensures a **structured, user-friendly, and functional** approval tracking experience, Boss. 🚀 Let me know if you need any refinements!
+
+### **Breakdown of the Request Details Modal**  
+
+When the user clicks **"View"** in the **Approval Status Page**, a **modal (popup window)** appears, displaying detailed information about the request.
+
+---
+
+### **1. Modal Background**
+- **Full-Screen Overlay:** A semi-transparent background covers the main page when the modal is open.
+- **Clicking outside the modal or the close button (`×`) will close it.**
+
+---
+
+### **2. Modal Header**
+- **Title:** "Request Details"
+- **Close Button (`×`)** positioned at the top-right.
+
+---
+
+### **3. Request Information Section**
+- **Request ID:** Displays the unique identifier of the request.
+- **Requested URL:** Shows the URL for which access was requested.
+- **Submitted By:** Displays the requester’s name.
+- **Date:** Displays the request submission date.
+- **Status:** Shows the current approval status (Pending, Approved, Rejected, Cancelled).
+
+---
+
+### **4. Approval Workflow Section**
+- **Shows the approval progress and pending stages:**
+  - **Direct Manager Approval:** ✅ Approved (Already approved)
+  - **Security Manager Approval:** ⏳ Pending (Waiting for approval)
+
+- **Future enhancements can include more approval levels like:**
+  - **Risk Consultant Approval**
+  - **Director Approval**
+  - **Timestamps of each approval stage**
+
+---
+
+### **5. Dynamic Behavior**
+- **The modal dynamically updates content** when a user clicks on a request’s "View" button.
+- **Displays real-time approval updates** depending on the status.
+
+---
+
+### **6. Styling & Layout**
+- **Centered modal box** with a white background and a rounded border.
+- **Consistent text alignment** and spacing for readability.
+- **Color-coded status indicators** to show approval progress.
+
+---
+
+This ensures the **Request Details Modal** is **clean, informative, and user-friendly**, Boss. 🚀 Let me know if you need any further refinements!

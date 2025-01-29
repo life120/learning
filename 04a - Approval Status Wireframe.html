@@ -200,7 +200,7 @@
                         <td>01/01/2024</td>
                         <td class="status-pending">Pending</td>
                         <td class="action-buttons">
-                            <button>🔍 View</button>
+                            <button onclick="openModal('12345', 'https:/example.com', 'John Doe', '01/01/2024', 'Pending')">🔍 View</button>
                             <button>❌ Cancel</button>
                         </td>
                     </tr>
@@ -212,7 +212,7 @@
                         <td>02/01/2024</td>
                         <td class="status-approved">Approved</td>
                         <td class="action-buttons">
-                            <button>🔍 View</button>
+                            <button onclick="openModal('12345', 'https:/example.com', 'John Doe', '01/01/2024', 'Pending')">🔍 View</button>
                         </td>
                     </tr>
                     <tr>
@@ -223,7 +223,7 @@
                         <td>03/01/2024</td>
                         <td class="status-cancelled">Cancelled</td>
                         <td class="action-buttons">
-                            <button>🔍 View</button>
+                            <button onclick="openModal('12345', 'https:/example.com', 'John Doe', '01/01/2024', 'Pending')">🔍 View</button>
                         </td>
                     </tr>
                     <tr>
@@ -234,7 +234,7 @@
                         <td>04/01/2024</td>
                         <td class="status-denied">Rejected</td>
                         <td class="action-buttons">
-                            <button>🔍 View</button>
+                            <button onclick="openModal('12345', 'https:/example.com', 'John Doe', '01/01/2024', 'Pending')">🔍 View</button>
                         </td>
                     </tr>
                 </tbody>
@@ -249,6 +249,18 @@
                 <span>Page 1 of 1</span>
             </section>
         </main>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Request Details</h2>
+            <p><strong>Request ID:</strong> <span id="modal-request-id"></span></p>
+            <p><strong>Requested URL:</strong> <span id="modal-url"></span></p>
+            <p><strong>Submitted By:</strong> <span id="modal-requester"></span></p>
+            <p><strong>Date:</strong> <span id="modal-date"></span></p>
+            <p><strong>Status:</strong> <span id="modal-status"></span></p>
+            <div id="modal-approval"></div>
+        </div>
     </div>
 </body>
 </html>
