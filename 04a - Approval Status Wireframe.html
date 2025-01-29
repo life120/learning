@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approval Status - Self-Service Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+        }
+        .sidebar {
+            width: 250px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar p {
+            text-align: center;
+            font-size: 14px;
+            color: #ddd;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #f4f4f4;
+        }
+        .search-filter {
+            padding: 10px;
+            background: #e3e3e3;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .search-filter input, .search-filter select {
+            padding: 8px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .request-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .request-table th, .request-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        .status-approved { color: green; }
+        .status-pending { color: orange; }
+        .status-denied { color: red; }
+        .status-cancelled { color: gray; }
+        .action-buttons button {
+            padding: 5px 10px;
+            margin: 2px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .download-options {
+            text-align: right;
+            margin-top: 20px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background: white;
+            margin: 10% auto;
+            padding: 20px;
+            width: 50%;
+            border-radius: 5px;
+        }
+        .close {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function openModal(requestId, url, requester, date, status) {
+            document.getElementById("modal").style.display = "block";
+            document.getElementById("modal-request-id").textContent = requestId;
+            document.getElementById("modal-url").textContent = url;
+            document.getElementById("modal-requester").textContent = requester;
+            document.getElementById("modal-date").textContent = date;
+            document.getElementById("modal-status").textContent = status;
+            document.getElementById("modal-approval").innerHTML = "" +
+                "<p><strong>Direct Manager Approval:</strong> ✅ Approved</p>" +
+                "<p><strong>Security Manager Approval:</strong> ⏳ Pending</p>";
+        }
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Portal Logo</h2>
+            <p>Self-Service Portal</p>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Request Access</a></li>
+                <li><a href="#">Approval Status</a></li>
+                <li><a href="#">Help/FAQs</a></li>
+                <li><a href="#">Admin Dashboard</a></li>
+            </ul>
+        </nav>
+        
+        <main class="main-content">
+            <header>
+                <h1>Approval Status</h1>
+            </header>
+            <p>Track the progress of your access requests. You can filter requests by status, type, and date.</p>
+            
+            <section class="search-filter">
+                <div>
+                    <input type="text" placeholder="Search by URL, Request ID, or Name">
+                    <select>
+                        <option>Status: All</option>
+                        <option>Pending</option>
+                        <option>Approved</option>
+                        <option>Cancelled</option>
+                        <option>Rejected</option>
+                    </select>
+                    <select>
+                        <option>Request Type: All</option>
+                        <option>Self</option>
+                        <option>Colleague</option>
+                        <option>Server</option>
+                    </select>
+                    <input type="date">
+                    <select>
+                        <option>Show 10 requests</option>
+                        <option>Show 20 requests</option>
+                    </select>
+                </div>
+            </section>
+            
+            <table class="request-table">
+                <thead>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Requested URL</th>
+                        <th>Request Type</th>
+                        <th>Submitted By</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12345</td>
+                        <td>https://example.com</td>
+                        <td>Self</td>
+                        <td>John Doe</td>
+                        <td>01/01/2024</td>
+                        <td class="status-pending">Pending</td>
+                        <td class="action-buttons">
+                            <button>🔍 View</button>
+                            <button>❌ Cancel</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12346</td>
+                        <td>https://approved.com</td>
+                        <td>Colleague</td>
+                        <td>Jane Smith</td>
+                        <td>02/01/2024</td>
+                        <td class="status-approved">Approved</td>
+                        <td class="action-buttons">
+                            <button>🔍 View</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12347</td>
+                        <td>https://cancelled.com</td>
+                        <td>Self</td>
+                        <td>Mark Lee</td>
+                        <td>03/01/2024</td>
+                        <td class="status-cancelled">Cancelled</td>
+                        <td class="action-buttons">
+                            <button>🔍 View</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12348</td>
+                        <td>https://rejected.com</td>
+                        <td>Server</td>
+                        <td>Lisa Wong</td>
+                        <td>04/01/2024</td>
+                        <td class="status-denied">Rejected</td>
+                        <td class="action-buttons">
+                            <button>🔍 View</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <section class="download-options">
+                <button>Download CSV</button>
+                <button>Download PDF</button>
+            </section>
+            
+            <section class="pagination">
+                <span>Page 1 of 1</span>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

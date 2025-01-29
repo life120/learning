@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Access - Self-Service Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+        }
+        .sidebar {
+            width: 250px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #f4f4f4;
+        }
+        .request-form {
+            background: #e3e3e3;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .request-form label {
+            font-weight: bold;
+        }
+        .request-form input, .request-form textarea, .request-form select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            display: block;
+        }
+        .request-form button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleRequestForm() {
+            const requestType = document.getElementById("request-type").value;
+            document.getElementById("user-form").classList.toggle("hidden", requestType !== "user");
+            document.getElementById("server-form").classList.toggle("hidden", requestType !== "server");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Portal Logo</h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Request Access</a></li>
+                <li><a href="#">Approval Status</a></li>
+                <li><a href="#">Help/FAQs</a></li>
+                <li><a href="#">Admin Dashboard</a></li>
+            </ul>
+        </nav>
+        
+        <main class="main-content">
+            <header>
+                <h1>Request Access</h1>
+            </header>
+            <p>This page allows you to request access to a specific URL. Please choose whether you are requesting access for a user or a server and fill in the required details.</p>
+            
+            <section class="request-form">
+                <label for="request-type">Apply for:</label>
+                <select id="request-type" name="request-type" onchange="toggleRequestForm()">
+                    <option value="">Select an option</option>
+                    <option value="user">User</option>
+                    <option value="server">Server</option>
+                </select>
+                
+                <form id="user-form" class="hidden">
+                    <h3>User Access Request</h3>
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="url">Requested URL</label>
+                    <input type="text" id="url" name="url" required>
+                    
+                    <label for="justification">Access Justification</label>
+                    <textarea id="justification" name="justification" rows="4" required></textarea>
+                    
+                    <button type="submit">Submit User Request</button>
+                </form>
+                
+                <form id="server-form" class="hidden">
+                    <h3>Server Access Request</h3>
+                    <label for="server-name">Server Name</label>
+                    <input type="text" id="server-name" name="server-name" required>
+                    
+                    <label for="server-ip">Server IP</label>
+                    <input type="text" id="server-ip" name="server-ip" required>
+                    
+                    <label for="server-justification">Access Justification</label>
+                    <textarea id="server-justification" name="server-justification" rows="4" required></textarea>
+                    
+                    <button type="submit">Submit Server Request</button>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

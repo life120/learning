@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Service Portal - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+        }
+        .sidebar {
+            width: 250px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar .portal-title {
+            text-align: center;
+            font-size: 14px;
+            color: #ddd;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #f4f4f4;
+        }
+        .welcome {
+            padding: 20px;
+            background: #e3e3e3;
+            text-align: center;
+        }
+        .quick-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+        }
+        .quick-actions button {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        .dashboard-overview {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .dashboard-card {
+            padding: 20px;
+            background: #ddd;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .announcements {
+            background: #f9f9f9;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .announcements a {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Menu -->
+        <nav class="sidebar">
+            <h2>Portal Logo</h2>
+            <p class="portal-title">Self-Service Portal</p>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Request Access</a></li>
+                <li><a href="#">Approval Status</a></li>
+                <li><a href="#">Help/FAQs</a></li>
+                <li><a href="#">Admin Dashboard</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <div class="notifications">🔔</div>
+                <div class="profile-menu">👤 User Name ▾</div>
+            </header>
+            
+            <section class="welcome">
+                <h1>Welcome to the Self-Service Portal</h1>
+                <p>This portal allows employees to request access to specific URLs by submitting an application. Requests go through multiple approval stages, ensuring security compliance before access is granted.</p>
+                <p>Hello, [User’s Name]. You have <strong>2 pending approvals</strong>.</p>
+            </section>
+            
+            <section class="quick-actions">
+                <button>Request Access</button>
+                <button>Track Your Requests</button>
+                <button>View Approved Rules</button>
+                <button>Help & FAQs</button>
+            </section>
+            
+            <section class="dashboard-overview">
+                <div class="dashboard-card">Requests Made: <strong>10</strong></div>
+                <div class="dashboard-card">Pending Approvals: <strong>2</strong></div>
+                <div class="dashboard-card">Approved Requests: <strong>8</strong></div>
+            </section>
+            
+            <section class="announcements">
+                <h2>Announcements & Updates</h2>
+                <p>New security update implemented. Review changes <a href="#">here</a>.</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
