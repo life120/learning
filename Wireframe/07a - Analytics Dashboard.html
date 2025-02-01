@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Analytics - Self-Service Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+        }
+        .sidebar {
+            width: 250px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar p {
+            text-align: center;
+            font-size: 14px;
+            color: #ddd;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #f4f4f4;
+        }
+        .analytics-cards {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .card {
+            background: #e3e3e3;
+            padding: 20px;
+            border-radius: 5px;
+            flex: 1;
+            text-align: center;
+        }
+        .charts-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .trends-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f4f4f4;
+            border-radius: 5px;
+        }
+        .export-options {
+            text-align: right;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Portal Logo</h2>
+            <p>Self-Service Portal</p>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Request Access</a></li>
+                <li><a href="#">Approval Status</a></li>
+                <li><a href="#">Help/FAQs</a></li>
+                <li><a href="#">Admin Dashboard</a></li>
+                <li><a href="#">Dashboard Analytics</a></li>
+            </ul>
+        </nav>
+        
+        <main class="main-content">
+            <header>
+                <h1>Dashboard Analytics</h1>
+            </header>
+            <p>Analyze system activity, approval trends, and user behavior.</p>
+            
+            <section class="analytics-cards">
+                <div class="card">Total Requests: 500</div>
+                <div class="card">Pending Approvals: 25</div>
+                <div class="card">Approved Requests: 400</div>
+                <div class="card">Rejected Requests: 50</div>
+            </section>
+            
+            <section class="charts-section">
+                <h2>Approval Trends Over Time</h2>
+                <canvas id="approvalTrendsChart"></canvas>
+                
+                <h2>Request Volume by Department</h2>
+                <canvas id="requestVolumeChart"></canvas>
+                
+                <h2>Most Requested URLs</h2>
+                <canvas id="mostRequestedURLsChart"></canvas>
+            </section>
+            
+            <section class="trends-section">
+                <h2>Recent Activities & Trends</h2>
+                <ul>
+                    <li>John Doe approved a request for <strong>https://example.com</strong></li>
+                    <li>Request <strong>#12347</strong> was rejected by the Security Manager</li>
+                    <li>IT Department submitted 30 new access requests today</li>
+                    <li>Marketing Department has the highest number of approved requests</li>
+                </ul>
+            </section>
+            
+            <section class="export-options">
+                <button>Download Reports (CSV)</button>
+                <button>Download Reports (PDF)</button>
+                <button>Download Reports (Excel)</button>
+            </section>
+        </main>
+    </div>
+    <script>
+        const ctx1 = document.getElementById('approvalTrendsChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'Approved Requests',
+                    data: [20, 40, 60, 80, 100],
+                    borderColor: 'green',
+                    fill: false
+                }]
+            }
+        });
+
+        const ctx2 = document.getElementById('requestVolumeChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['IT', 'HR', 'Finance', 'Marketing', 'Sales'],
+                datasets: [{
+                    label: 'Requests',
+                    data: [50, 30, 20, 40, 35],
+                    backgroundColor: 'blue'
+                }]
+            }
+        });
+
+        const ctx3 = document.getElementById('mostRequestedURLsChart').getContext('2d');
+        new Chart(ctx3, {
+            type: 'pie',
+            data: {
+                labels: ['example.com', 'secure-site.com', 'portal.com'],
+                datasets: [{
+                    data: [45, 30, 25],
+                    backgroundColor: ['red', 'yellow', 'green']
+                }]
+            }
+        });
+    </script>
+</body>
+</html>

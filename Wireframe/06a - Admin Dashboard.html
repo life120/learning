@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Self-Service Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+        }
+        .sidebar {
+            width: 250px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar p {
+            text-align: center;
+            font-size: 14px;
+            color: #ddd;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #f4f4f4;
+        }
+        .dashboard-cards {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .card {
+            background: #e3e3e3;
+            padding: 20px;
+            border-radius: 5px;
+            flex: 1;
+            text-align: center;
+        }
+        .chart-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .pending-requests, .user-management, .audit-logs {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f4f4f4;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        .export-options {
+            text-align: right;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Portal Logo</h2>
+            <p>Self-Service Portal</p>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Request Access</a></li>
+                <li><a href="#">Approval Status</a></li>
+                <li><a href="#">Help/FAQs</a></li>
+                <li><a href="#">Admin Dashboard</a></li>
+            </ul>
+        </nav>
+        
+        <main class="main-content">
+            <header>
+                <h1>Admin Dashboard</h1>
+            </header>
+            <p>Manage access requests, approvals, and system settings.</p>
+            
+            <section class="dashboard-cards">
+                <div class="card">Total Requests: 120</div>
+                <div class="card">Pending Approvals: 10</div>
+                <div class="card">Approved Requests: 80</div>
+                <div class="card">Rejected Requests: 30</div>
+            </section>
+            
+            <section class="chart-section">
+                <h2>Approval Trends</h2>
+                <p>Graph Placeholder</p>
+            </section>
+            
+            <section class="pending-requests">
+                <h2>Pending Requests</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Request ID</th>
+                            <th>Requested URL</th>
+                            <th>Requester</th>
+                            <th>Submission Date</th>
+                            <th>Approval Stage</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12345</td>
+                            <td>https://example.com</td>
+                            <td>John Doe</td>
+                            <td>01/01/2024</td>
+                            <td>Security Manager</td>
+                            <td><button>✔ Approve</button> <button>✖ Reject</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section class="user-management">
+                <h2>User Management</h2>
+                <p>Search, promote, or deactivate users.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>johndoe</td>
+                            <td>johndoe@example.com</td>
+                            <td>
+                                <select>
+                                    <option>Approver</option>
+                                    <option>Admin</option>
+                                    <option>User</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section class="audit-logs">
+                <h2>Audit Logs</h2>
+                <p>Track system actions for security and compliance.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>User</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Approved Request #12345</td>
+                            <td>AdminUser</td>
+                            <td>02/01/2024</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section class="export-options">
+                <button>Download Reports (CSV)</button>
+                <button>Download Reports (PDF)</button>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

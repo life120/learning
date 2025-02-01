@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & FAQs - Self-Service Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+        }
+        .sidebar {
+            width: 250px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar p {
+            text-align: center;
+            font-size: 14px;
+            color: #ddd;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #f4f4f4;
+        }
+        .search-bar {
+            margin: 20px 0;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .faq-section {
+            margin: 20px 0;
+        }
+        .faq-item {
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            background: #e3e3e3;
+        }
+        .contact-form {
+            background: #e3e3e3;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .contact-form button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function toggleFAQ(faqId) {
+            var answer = document.getElementById(faqId);
+            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Portal Logo</h2>
+            <p>Self-Service Portal</p>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Request Access</a></li>
+                <li><a href="#">Approval Status</a></li>
+                <li><a href="#">Help/FAQs</a></li>
+                <li><a href="#">Admin Dashboard</a></li>
+            </ul>
+        </nav>
+        
+        <main class="main-content">
+            <header>
+                <h1>Help & FAQs</h1>
+            </header>
+            <p>Find answers to frequently asked questions or contact support for further assistance.</p>
+            
+            <section class="search-bar">
+                <input type="text" placeholder="Search FAQs...">
+            </section>
+            
+            <section class="faq-section">
+                <div class="faq-item" onclick="toggleFAQ('faq1')">How do I request access to a URL?</div>
+                <div id="faq1" class="faq-answer">Go to the 'Request Access' page and fill out the request form.</div>
+                
+                <div class="faq-item" onclick="toggleFAQ('faq2')">How long does the approval process take?</div>
+                <div id="faq2" class="faq-answer">Approval times vary but typically take 1-3 business days.</div>
+                
+                <div class="faq-item" onclick="toggleFAQ('faq3')">What should I do if my request is rejected?</div>
+                <div id="faq3" class="faq-answer">Check the rejection reason and update your request accordingly.</div>
+            </section>
+            
+            <section class="contact-form">
+                <h2>Contact Support</h2>
+                <form>
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="issue">Describe Your Issue</label>
+                    <textarea id="issue" name="issue" rows="4" required></textarea>
+                    
+                    <button type="submit">Submit Request</button>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
