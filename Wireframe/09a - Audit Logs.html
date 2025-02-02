@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Logs - Self-Service Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+        }
+        .sidebar {
+            width: 250px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar p {
+            text-align: center;
+            font-size: 14px;
+            color: #ddd;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #f4f4f4;
+        }
+        .filter-section {
+            background: #e3e3e3;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .filter-section input, .filter-section select {
+            padding: 8px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        .export-options {
+            text-align: right;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Portal Logo</h2>
+            <p>Self-Service Portal</p>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Request Access</a></li>
+                <li><a href="#">Approval Status</a></li>
+                <li><a href="#">Help/FAQs</a></li>
+                <li><a href="#">Admin Dashboard</a></li>
+                <li><a href="#">Dashboard Analytics</a></li>
+                <li><a href="#">Approval Certificate</a></li>
+                <li><a href="#">Audit Logs</a></li>
+            </ul>
+        </nav>
+        
+        <main class="main-content">
+            <header>
+                <h1>Audit Logs</h1>
+            </header>
+            <p>Track system activities, approvals, rejections, and security events.</p>
+            
+            <section class="filter-section">
+                <input type="text" placeholder="Search by User, Request ID, or Action Type">
+                <select>
+                    <option>All Actions</option>
+                    <option>Approvals</option>
+                    <option>Rejections</option>
+                    <option>Role Changes</option>
+                    <option>Login Attempts</option>
+                </select>
+                <select>
+                    <option>All Users</option>
+                    <option>Admin</option>
+                    <option>Approver</option>
+                    <option>Requester</option>
+                </select>
+                <input type="date">
+            </section>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>User</th>
+                        <th>Action</th>
+                        <th>Request ID</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>02/02/2024 10:30 AM</td>
+                        <td>AdminUser</td>
+                        <td>Approved Request</td>
+                        <td>12345</td>
+                        <td>Request approved by Admin</td>
+                    </tr>
+                    <tr>
+                        <td>02/02/2024 09:45 AM</td>
+                        <td>John Doe</td>
+                        <td>Submitted Request</td>
+                        <td>12346</td>
+                        <td>Requested access to URL</td>
+                    </tr>
+                    <tr>
+                        <td>01/02/2024 05:15 PM</td>
+                        <td>SecurityTeam</td>
+                        <td>Rejected Request</td>
+                        <td>12344</td>
+                        <td>Security risk identified</td>
+                    </tr>
+                    <tr>
+                        <td>01/02/2024 03:30 PM</td>
+                        <td>System</td>
+                        <td>User Login</td>
+                        <td>-</td>
+                        <td>Login success (AdminUser)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <section class="export-options">
+                <button>Download CSV</button>
+                <button>Download PDF</button>
+                <button>Download Excel</button>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

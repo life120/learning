@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Self-Service Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+        }
+        .sidebar {
+            width: 250px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .profile-header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #ccc;
+        }
+        .profile-info {
+            flex-grow: 1;
+        }
+        .profile-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .profile-section h2 {
+            margin-bottom: 10px;
+        }
+        .profile-section input, .profile-section select, .profile-section button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .save-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .save-btn:hover {
+            background: #0056b3;
+        }
+        .deactivate-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .deactivate-btn:hover {
+            background: #a71d2a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Portal Logo</h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Request Access</a></li>
+                <li><a href="#">Approval Status</a></li>
+                <li><a href="#">Help/FAQs</a></li>
+                <li><a href="#">Admin Dashboard</a></li>
+                <li><a href="#">Dashboard Analytics</a></li>
+                <li><a href="#">Approval Certificate</a></li>
+                <li><a href="#">Audit Logs</a></li>
+                <li><a href="#">Profile</a></li>
+            </ul>
+        </nav>
+        
+        <main class="main-content">
+            <header>
+                <h1>Profile</h1>
+            </header>
+            <section class="profile-header">
+                <img src="#" alt="Profile Picture">
+                <div class="profile-info">
+                    <h2>John Doe</h2>
+                    <p>Email: johndoe@example.com</p>
+                    <p>Role: Approver</p>
+                </div>
+            </section>
+            
+            <section class="profile-section">
+                <h2>Update Profile</h2>
+                <input type="text" placeholder="Full Name" value="John Doe">
+                <input type="email" placeholder="Email Address" value="johndoe@example.com">
+                <button class="save-btn">Save Changes</button>
+            </section>
+            
+            <section class="profile-section">
+                <h2>Security Settings</h2>
+                <input type="password" placeholder="New Password">
+                <input type="password" placeholder="Confirm Password">
+                <button class="save-btn">Change Password</button>
+                <label>
+                    <input type="checkbox"> Enable Two-Factor Authentication (2FA)
+                </label>
+            </section>
+            
+            <section class="profile-section">
+                <h2>Notification Preferences</h2>
+                <label><input type="checkbox"> Email Notifications</label>
+                <label><input type="checkbox"> In-App Notifications</label>
+                <button class="save-btn">Save Preferences</button>
+            </section>
+            
+            <section class="profile-section">
+                <h2>Account Management</h2>
+                <button class="deactivate-btn">Deactivate Account</button>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

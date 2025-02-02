@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approval Certificate - Self-Service Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+        }
+        .sidebar {
+            width: 250px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar p {
+            text-align: center;
+            font-size: 14px;
+            color: #ddd;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            text-align: center;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #f4f4f4;
+        }
+        .certificate-box {
+            border: 2px solid #ccc;
+            padding: 20px;
+            margin: 20px auto;
+            width: 70%;
+            background: #fff;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .certificate-box h2 {
+            margin-bottom: 10px;
+        }
+        .certificate-details {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .certificate-details p {
+            margin: 5px 0;
+        }
+        .certificate-actions {
+            margin-top: 20px;
+        }
+        .certificate-actions button {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        .download-btn {
+            background: #007bff;
+            color: white;
+        }
+        .print-btn {
+            background: #28a745;
+            color: white;
+        }
+        .email-btn {
+            background: #ffc107;
+            color: black;
+        }
+        .past-certificates {
+            margin-top: 30px;
+            text-align: left;
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .past-certificates table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .past-certificates th, .past-certificates td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        .view-btn {
+            background: #17a2b8;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Portal Logo</h2>
+            <p>Self-Service Portal</p>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Request Access</a></li>
+                <li><a href="#">Approval Status</a></li>
+                <li><a href="#">Help/FAQs</a></li>
+                <li><a href="#">Admin Dashboard</a></li>
+                <li><a href="#">Dashboard Analytics</a></li>
+                <li><a href="#">Approval Certificate</a></li>
+            </ul>
+        </nav>
+        
+        <main class="main-content">
+            <header>
+                <h1>Approval Certificate</h1>
+            </header>
+            <p>Download and verify your approved request certificate.</p>
+            
+            <section class="certificate-box">
+                <h2>Access Approval Certificate</h2>
+                <p>This certificate verifies that the following request has been approved:</p>
+                
+                <div class="certificate-details">
+                    <p><strong>Request ID:</strong> 123456</p>
+                    <p><strong>Requester Name:</strong> John Doe</p>
+                    <p><strong>Requested URLs:</strong></p>
+                    <ul>
+                        <li>https://example.com</li>
+                        <li>https://secure-site.com</li>
+                        <li>https://portal.com</li>
+                    </ul>
+                    <p><strong>Approval Date:</strong> 01/02/2024</p>
+                    <p><strong>Approval Chain:</strong></p>
+                    <ul>
+                        <li>✅ Direct Manager - Approved</li>
+                        <li>✅ Security Manager - Approved</li>
+                        <li>✅ Risk Consultant - Approved</li>
+                        <li>✅ Director - Approved</li>
+                    </ul>
+                    <p><strong>Verification Code:</strong> ABCD-1234-XYZ</p>
+                </div>
+                
+                <div class="certificate-actions">
+                    <button class="download-btn">Download PDF</button>
+                    <button class="print-btn">Print Certificate</button>
+                    <button class="email-btn">Email Certificate</button>
+                </div>
+            </section>
+            
+            <section class="past-certificates">
+                <h2>Past Approval Certificates</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Request ID</th>
+                            <th>Approval Date</th>
+                            <th>Requested URLs</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>123455</td>
+                            <td>25/01/2024</td>
+                            <td>https://old-request.com</td>
+                            <td><button class="view-btn">View</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
