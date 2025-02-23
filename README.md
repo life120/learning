@@ -4,3 +4,13 @@ This repository serves as a place to show case my work in creating a self servic
 It is currently a work in progress. If you do have any opinions or comments regarding this, do let me know. 
 
 Thank you. 
+
+# Frontend
+
+## How to create local setup
+- Install nodejs and npm
+- install desired React version
+npm install react@18 react-dom@18
+npm create vite@5
+npm install -D tailwindcss@3 postcss autoprefixer
+npx tailwindcss init -p
