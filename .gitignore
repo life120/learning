@@ -1,3 +1,10 @@
 # Upload folder
 uploads/
 upload/
+
+# pycache
+__pycache__
+*.pyc
+
+# database
+*.sqlite3

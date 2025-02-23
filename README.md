@@ -7,10 +7,17 @@ Thank you.
 
 # Frontend
 
-## How to create local setup
+## How to create frontend local setup
 - Install nodejs and npm
 - install desired React version
 npm install react@18 react-dom@18
 npm create vite@5
 npm install -D tailwindcss@3 postcss autoprefixer
 npx tailwindcss init -p
+
+# Backend
+
+## How to create backend local setup
+- Install python version 3.13
+- create virtual environment
+- Install from requirements.txt
