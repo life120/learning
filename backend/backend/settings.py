@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # Django apps
     'accounts',
     # Third Party
+    'rest_framework',
     'rest_framework_simplejwt',
     
 ]
@@ -141,7 +142,10 @@ AUTHENTICATION_BACKENDS = [
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',  # Default: Protect all views
+    ),
 }
 
 from datetime import timedelta
